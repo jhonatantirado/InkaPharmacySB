@@ -1,0 +1,8 @@
+---
+applications:
+- name: InkaPharmacySB
+  path: target/InkaPharmacy-0.0.1-SNAPSHOT.jar
+  memory: 1024M
+  instances: 1
+  random-route: true
+  health-check-type: process

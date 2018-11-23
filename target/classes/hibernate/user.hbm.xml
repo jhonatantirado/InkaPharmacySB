@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" package="app.user.domain.entity">
+  <class name="User" table="user">
+    <id column="user_id" name="id">
+      <generator class="native"/>
+    </id>
+    <property column="username" name="username" not-null="true"/>
+    <property column="password" name="password" not-null="true"/>
+    <property column="role" name="role" not-null="true"/>
+    <property column="locked" name="isLocked"/>
+    <many-to-one class="app.customers.domain.entity.Customer" column="customer_id" name="customer" not-null="true"/>
+  </class>
+</hibernate-mapping>

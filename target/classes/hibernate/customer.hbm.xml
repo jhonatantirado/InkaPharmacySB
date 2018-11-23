@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="app.customers.domain.entity">
+  <class name="Customer" table="customer">
+    <id column="customer_id" name="id">
+      <generator class="native"/>
+    </id>
+    <property column="first_name" name="firstName" not-null="true"/>
+    <property column="last_name" name="lastName" not-null="true"/>
+    <property column="identity_document" name="identityDocument" not-null="true"/>
+    <property column="active" name="isActive" not-null="true"/>
+    
+    <set cascade="all" inverse="true" name="projects">
+      <key column="customer_id" not-null="true"/>
+      <one-to-many class="app.project.domain.entity.Project"/>
+    </set>
+    <set cascade="all" inverse="true" name="users">
+      <key column="customer_id" not-null="true"/>
+      <one-to-many class="app.user.domain.entity.User"/>
+    </set>
+  </class>
+</hibernate-mapping>
