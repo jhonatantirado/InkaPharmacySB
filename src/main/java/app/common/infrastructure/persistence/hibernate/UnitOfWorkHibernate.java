@@ -36,6 +36,7 @@ public class UnitOfWorkHibernate implements UnitOfWork {
 	public Session getSession() {
 		if (this.transaction == null) {
 			this.springAOPTransaction = true;
+			System.out.println("UnitOfWorkHibernate - getSession "  + sessionFactory.getCurrentSession());
 			return sessionFactory.getCurrentSession();
 		} else {
 			this.springAOPTransaction = false;
@@ -46,7 +47,9 @@ public class UnitOfWorkHibernate implements UnitOfWork {
 	public boolean beginTransaction() {
 		if (this.transaction == null || !this.transaction.isActive()) {
 			this.session = sessionFactory.openSession();
+			System.out.println("beginTransaction - session "  + sessionFactory.openSession());
 			this.transaction = this.session.beginTransaction();
+			System.out.println("beginTransaction - transaction "  + this.session.beginTransaction());
 			return true;
 		}
 		return false;

@@ -70,6 +70,7 @@ public class HibernateConfig {
         dataSource.setUrl(URL);
         dataSource.setUsername(USER_NAME);
         dataSource.setPassword(PASSWORD);
+        System.out.println("HibernateConfig - getDataSource "  + dataSource);
         return dataSource;
     }
 	
@@ -82,6 +83,7 @@ public class HibernateConfig {
         sessionFactoryBean.setHibernateProperties(getHibernateProperties());
         sessionFactoryBean.afterPropertiesSet();
         SessionFactory sessionFactory = sessionFactoryBean.getObject();
+        System.out.println("HibernateConfig - getSessionFactory "  + sessionFactory);
         return sessionFactory;
     }
 	
@@ -90,9 +92,11 @@ public class HibernateConfig {
 		try {
 			String hbnXml = "classpath:/hibernate/*.hbm.xml";
 			resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources(hbnXml);
+			System.out.println("HibernateConfig - getMappingLocations "  + ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources(hbnXml));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	    System.out.println("HibernateConfig - getMappingLocations "  + resources);
 		return resources;
 	}
 	
@@ -107,6 +111,7 @@ public class HibernateConfig {
 		properties.put("hibernate.order_updates", HIBERNATE_ORDER_UPDATES);
 		properties.put("hibernate.jdbc.batch_versioned_data", HIBERNATE_JDBC_VERSIONED_DATA);
 		properties.put("hibernate.generate_statistics", HIBERNATE_GENERATE_STATICS);
+	  System.out.println("HibernateConfig - getHibernateProperties "  + properties);
 		return properties;
 	}
 	
@@ -114,6 +119,7 @@ public class HibernateConfig {
     @Bean(name = "transactionManager")
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
+        System.out.println("HibernateConfig - HibernateTransactionManager "  + transactionManager);
         return transactionManager;
     }
 	

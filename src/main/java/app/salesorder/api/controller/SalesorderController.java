@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import app.common.application.ApiResponseHandler;
+import app.project.application.dto.ProjectListDto;
 import app.salesorder.application.dto.SalesorderListDto;
 import app.salesorder.application.service.SalesorderService;
 
 @RestController
-@RequestMapping("api/Sales")
+@RequestMapping("api/sales")
 public class SalesorderController {
 
 	@Autowired
@@ -23,10 +24,11 @@ public class SalesorderController {
 	@Autowired
 	ApiResponseHandler apiResponseHandler;
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/Order")
+	@RequestMapping(method = RequestMethod.GET, path = "/order")
 	public ResponseEntity<Object> getAllOrderSales() throws Exception {
             try {
                 List<SalesorderListDto> listado = salesorderService.getAll();
+                System.out.println("SalesorderController - /Order"  + listado);
                 return new ResponseEntity<Object>(listado, HttpStatus.OK);
             } catch(IllegalArgumentException ex) {
                     ex.printStackTrace();
@@ -36,5 +38,7 @@ public class SalesorderController {
 		return new ResponseEntity<Object>(apiResponseHandler.getApplicationException(), HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
+	
+	
 	
 }

@@ -6,8 +6,8 @@ public class SalesorderCreateDto {
 
 	private long id;
 	private Date sale_date;
-	private int customer_id;
-	private int employee_id;
+	private long customer_id;
+	private long employee_id;
 	private int status;	
 		
 	public SalesorderCreateDto() {
@@ -25,13 +25,13 @@ public class SalesorderCreateDto {
 	public void setSale_date(Date sale_date) {
 		this.sale_date = sale_date;
 	}
-	public int getCustomer_id() {
+	public long getCustomer_id() {
 		return customer_id;
 	}
 	public void setCustomer_id(int customer_id) {
 		this.customer_id = customer_id;
 	}
-	public int getEmployee_id() {
+	public long getEmployee_id() {
 		return employee_id;
 	}
 	public void setEmployee_id(int employee_id) {

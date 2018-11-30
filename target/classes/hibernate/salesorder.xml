@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" package="app.salesorder.domain.entity">
-  <class name="Salesorder" table="sale_order">
+  <class name="Saleorder" table="sale_order">
     <id column="sale_orde_id" name="id">
       <generator class="native"/>
     </id>
     <property column="sale_date" name="sale_date" not-null="true"/>
-    <property column="customer_id" name="customer_id" not-null="true"/>
-     <property column="employee_id" name="employee_id" not-null="true"/>
-    <property column="status" name="status"/>   
+    <many-to-one class="app.customers.domain.entity.Customer" column="customer_id" name="customer" not-null="true"/> 
+    <many-to-one class="app.employee.domain.entity.Employee" column="employee_id" name="customer" not-null="true"/> 
+    <property column="status" name="status"/>     
     </class>
 </hibernate-mapping>
+
+
+

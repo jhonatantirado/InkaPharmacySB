@@ -2,51 +2,62 @@ package app.salesorder.domain.entity;
 
 import java.util.Date;
 
+import app.customers.domain.entity.Customer;
+import app.employee.domain.entity.Employee;
+
 public class Salesorder {	
 	
 	private long id;
 	private Date sale_date;
-	private int customer_id;
-	private int employee_id;
+	private Customer customer;
+	private Employee employee;	
 	private int status;	
 		
 	public Salesorder() {
 		
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public Date getSale_date() {
 		return sale_date;
 	}
+
 	public void setSale_date(Date sale_date) {
 		this.sale_date = sale_date;
 	}
-	public int getCustomer_id() {
-		return customer_id;
+
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	public int getEmployee_id() {
-		return employee_id;
+
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
+
+	
 	public int getStatus() {
 		return status;
 	}
+
 	public void setStatus(int status) {
 		this.status = status;
 	}
 	
 	
 	
-	
-	
-
 }

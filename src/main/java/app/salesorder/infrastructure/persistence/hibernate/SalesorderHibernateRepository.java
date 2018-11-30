@@ -16,12 +16,12 @@ public class SalesorderHibernateRepository extends BaseHibernateRepository<Sales
 
 	public SalesorderHibernateRepository() {
 		super(Salesorder.class);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
-    public List<Salesorder> getAll() throws SQLException {
+    public List<Salesorder> getAll() throws SQLException {		
         Criteria criteria = unitOfWork.getSession().createCriteria(Salesorder.class);
+        System.out.println("SalesorderHibernateRepository - getAll "  + criteria.list());
         return criteria.list();
     }
 

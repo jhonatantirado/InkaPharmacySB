@@ -7,7 +7,7 @@ import app.customers.domain.entity.Customer;
 public class Project {
 	private long id;
 	private String code;
-        private String name;
+   private String name;
 	private MoneyAbstraction balance;
 	private boolean isLocked;
 	private Customer customer;

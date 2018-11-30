@@ -14,6 +14,7 @@ public class BaseHibernateRepository<T> {
 		
 	public BaseHibernateRepository(Class<T> type) {
 		this.type = type;
+		System.out.println("BaseHibernateRepository "  +  type);
 	}
 	
 	public void create(T entity) throws SQLException {
@@ -22,11 +23,13 @@ public class BaseHibernateRepository<T> {
 	
 	public T read(long id) throws SQLException {
 		if (unitOfWork.isSpringAOPTransaction()) {
+			System.out.println("BaseHibernateRepository - T read "  +  unitOfWork.getSession().get(type, id));
 			return unitOfWork.getSession().get(type, id);
 		} else {
 			boolean status = unitOfWork.beginTransaction();
 			T entity = unitOfWork.getSession().get(type, id);
 			unitOfWork.commit(status);
+			System.out.println("BaseHibernateRepository - T read "  +  entity);
 			return entity;
 		}
 	}

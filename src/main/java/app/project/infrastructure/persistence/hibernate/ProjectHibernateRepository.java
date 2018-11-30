@@ -1,12 +1,8 @@
 package app.project.infrastructure.persistence.hibernate;
 
 import javax.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import app.common.infrastructure.persistence.hibernate.BaseHibernateRepository;
-import app.customers.domain.entity.Customer;
-import app.customers.domain.repository.CustomerRepository;
 import app.project.domain.entity.Project;
 import app.project.domain.repository.ProjectRepository;
 import java.sql.SQLException;
@@ -25,16 +21,16 @@ public class ProjectHibernateRepository extends BaseHibernateRepository<Project>
         @Override
         public List<Project> getAll() throws SQLException {
             Criteria criteria = unitOfWork.getSession().createCriteria(Project.class);
+            System.out.println("SalesorderHibernateRepository - getAll "  + criteria.list());
             return criteria.list();
         }
 
-        
-       
         
         @Override
         public Project findByName(String name) throws SQLException {
             Criteria criteria = unitOfWork.getSession().createCriteria(Project.class);
             criteria.add(Restrictions.eq("name", name));
+            System.out.println("SalesorderHibernateRepository - findByName "  +  (Project) criteria.uniqueResult());
             return (Project) criteria.uniqueResult();
         }
 }

@@ -13,15 +13,14 @@ import app.project.infrastructure.persistence.hibernate.ProjectHibernateReposito
 
 @Service
 public class ProjectService {
+	
+    @Autowired
+	ProjectCreateAssembler projectCreateAssembler;
 
 	@Autowired
 	ProjectHibernateRepository projectHibernateRepository;
 	
-	   @Autowired
-	   ProjectCreateAssembler projectCreateAssembler;
-	   
-	   
-	
+  	
 	 public List<ProjectListDto> getAll() throws SQLException{
 	        return projectCreateAssembler.toDtoList(projectHibernateRepository.getAll());
 	    }

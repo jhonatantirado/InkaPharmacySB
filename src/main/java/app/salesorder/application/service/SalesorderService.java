@@ -19,7 +19,9 @@ public class SalesorderService {
 	  SalesorderHibernateRepository salesorderHibernateRepository;
 	  
 	  public List<SalesorderListDto> getAll() throws SQLException{
+		  System.out.println("AQIIII SalesorderService getAll "  + salesorderCreateAssembler.toDtoList(salesorderHibernateRepository.getAll()));
 	        return salesorderCreateAssembler.toDtoList(salesorderHibernateRepository.getAll());
+	        
 	    }
 	
 

@@ -64,6 +64,7 @@ public class ProjectCreateAssembler {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.addConverter(getConverter());
 		List<ProjectListDto> pprojectListDto = modelMapper.map(projectListDto, new TypeToken<List<ProjectListDto>>() {}.getType());
+        System.out.println(" result" + pprojectListDto);
 		return pprojectListDto;
 	}
 	
