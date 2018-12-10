@@ -18,9 +18,10 @@ public class EmployeeService {
 	@Autowired
 	EmployeeHibernateRepository employeeHibernateRepository;
 	
+
   	
 	 public List<EmployeeListDto> getAll() throws SQLException{
-	        return employeeCreateAssembler.toDtoList(employeeHibernateRepository.getAll());
+	        return null;
 	 }
 	
 

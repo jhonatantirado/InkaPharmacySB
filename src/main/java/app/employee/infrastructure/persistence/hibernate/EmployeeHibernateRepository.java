@@ -15,42 +15,29 @@ import org.hibernate.criterion.Restrictions;
 public class EmployeeHibernateRepository extends BaseHibernateRepository<Employee> implements EmployeeRepository {
 
 	public EmployeeHibernateRepository() {
-	
+		
 		super(Employee.class);
 	}
 
 	@Override
-	public List<Employee> getAll() throws SQLException {
-		Criteria criteria = unitOfWork.getSession().createCriteria(Employee.class);
-		System.out.println("EmployeeHibernateRepository - getAll "  + criteria.list());
-        return criteria.list();
-	}
-		
-
-	@Override
-	public Employee findByName(String name) throws SQLException {
+	public List<Employee> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void create(Employee employee) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Employee employee) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Employee read(long id) throws SQLException {
+	public Employee find(String name) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void save(Employee customer) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
+		
 
 }

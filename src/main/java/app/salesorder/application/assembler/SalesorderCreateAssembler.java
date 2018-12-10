@@ -44,8 +44,7 @@ public class SalesorderCreateAssembler {
 		    @Override
 		    public Salesorder convert(MappingContext<SalesorderCreateDto, Salesorder> context) {
 		    	SalesorderCreateDto salesorderCreateDto =  SalesorderCreateDto.class.cast(context.getSource());
-		    //	MoneyAbstraction balance = new Money(projectCreateDto.getBalance(), projectCreateDto.getCurrency());
-		    	
+		 
 		    	Salesorder salesorder = new Salesorder();
 		    	salesorder.setSale_date(salesorderCreateDto.getSale_date());
 		    //	salesorder.setCustomer_id(salesorderCreateDto.getCustomer_id());
@@ -77,8 +76,8 @@ public class SalesorderCreateAssembler {
 		PropertyMap<Salesorder, SalesorderCreateDto> map = new PropertyMap<Salesorder, SalesorderCreateDto>() {
 		  protected void configure() {
 			map().setSale_date(source.getSale_date());
-          //  map().setCustomer_id(source.getCustomer_id());
-           // map().setEmployee_id(source.getEmployee_id());
+            map().setCustomer_id(source.getCustomer_id());
+            map().setEmployee_id(source.getEmployee_id());
             map().setStatus(source.getStatus());
 		  }
 		};

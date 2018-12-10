@@ -6,8 +6,8 @@
       <generator class="native"/>
     </id>
     <property column="sale_date" name="sale_date" not-null="true"/>
-    <many-to-one class="app.customers.domain.entity.Customer" column="customer_id" name="customer" not-null="true"/> 
-    <many-to-one class="app.employee.domain.entity.Employee" column="employee_id" name="customer" not-null="true"/> 
+    <property column="customer_id" name="customer_id" not-null="true"/> 
+    <property column="employee_id" name="employee_id" not-null="true"/> 
     <property column="status" name="status"/>     
     </class>
 </hibernate-mapping>
