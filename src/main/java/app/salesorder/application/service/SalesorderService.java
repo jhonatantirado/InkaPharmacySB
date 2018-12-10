@@ -1,6 +1,8 @@
 package app.salesorder.application.service;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -27,12 +29,7 @@ public class SalesorderService {
 	 
 	  
 	  @Transactional
-	  public List<SalesorderListDto> getAllOrderSales(int page, int size) throws SQLException{
-		 // System.out.println("AQIIII SalesorderService getAll "  + salesorderCreateAssembler.toDtoList(salesorderHibernateRepository.getAll()));
-	        return salesorderCreateAssembler.toDtoList(salesorderDAO.getallSaveorder(page,size));
-	        
+	  public List<SalesorderListDto> getAllOrderSales(int page, int size, String DateFrom, String DateTo) throws SQLException{
+	    return salesorderCreateAssembler.toDtoList(salesorderDAO.getallSaveorder(page,size, DateFrom, DateTo));  
 	    }
-	
-	  
-	 
 }

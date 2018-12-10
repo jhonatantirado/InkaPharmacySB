@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ JdbcTemplate template;
 
 
 	@Override
-	public List<Salesorder> getallSaveorder(int page, int size) {
-		String sql="SELECT sale_order_id, sale_date,customer_id, employee_id,status FROM sale_order LIMIT "+ ""+page+", "+""+size+""  ;
+	public List<Salesorder> getallSaveorder(int page, int size,String DateFrom, String DateTo ) {	  
+		String sql="SELECT sale_order_id, sale_date,customer_id, employee_id,status FROM sale_order where (sale_date BETWEEN "+"'"+DateFrom+"'"+ " AND "+"'"+DateTo+"'" + ") LIMIT "+ ""+page+", "+""+size+""  ;
 		System.out.println(sql);
 		return template.query(sql,new ResultSetExtractor<List<Salesorder>>(){  
 		    
@@ -46,7 +47,7 @@ JdbcTemplate template;
 		        List<Salesorder> list=new ArrayList<Salesorder>(); 		        
 		        while(rs.next()){  
 		        	Salesorder salesorder=new Salesorder();
-		        	salesorder.setId(rs.getInt(1));
+		        	salesorder.setId(rs.getInt(1));		        	
 		        	salesorder.setSale_date(rs.getDate(2));		        					     
 				    salesorder.setCustomer_id(rs.getInt(3));		        	
 		        	salesorder.setEmployee_id(rs.getInt(4)); 
@@ -57,5 +58,6 @@ JdbcTemplate template;
 		        }  
 		    });  
 		  }
+	
 	
 }

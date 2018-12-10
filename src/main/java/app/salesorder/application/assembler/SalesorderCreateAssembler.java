@@ -43,18 +43,13 @@ public class SalesorderCreateAssembler {
 		Converter<SalesorderCreateDto, Salesorder> converter = new Converter<SalesorderCreateDto, Salesorder>() {
 		    @Override
 		    public Salesorder convert(MappingContext<SalesorderCreateDto, Salesorder> context) {
-		    	SalesorderCreateDto salesorderCreateDto =  SalesorderCreateDto.class.cast(context.getSource());
-		 
+		    	SalesorderCreateDto salesorderCreateDto =  SalesorderCreateDto.class.cast(context.getSource());		 
 		    	Salesorder salesorder = new Salesorder();
 		    	salesorder.setSale_date(salesorderCreateDto.getSale_date());
-		    //	salesorder.setCustomer_id(salesorderCreateDto.getCustomer_id());
-		    //	salesorder.setEmployee_id(salesorderCreateDto.getEmployee_id());
+		    	System.out.println("fecha -->> " + salesorderCreateDto.getSale_date());  
+		        salesorder.setCustomer_id(salesorderCreateDto.getCustomer_id());
+		    	salesorder.setEmployee_id(salesorderCreateDto.getEmployee_id());
 		    	salesorder.setStatus(salesorderCreateDto.getStatus());
-		    	
-		    	System.out.println("-->>>"   + salesorderCreateDto.getStatus());
-		       // Customer customer = new Customer();
-		       // customer.setId(projectCreateDto.getCustomerId());
-		        //project.setCustomer(customer);
 		    	return salesorder;
 		    }
 		};
