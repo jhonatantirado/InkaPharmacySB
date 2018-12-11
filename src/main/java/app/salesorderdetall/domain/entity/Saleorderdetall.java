@@ -11,6 +11,7 @@ public class Saleorderdetall {
 	private int status;
 	
 	
+	
 public Saleorderdetall() {
 		
 }

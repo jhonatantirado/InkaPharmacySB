@@ -32,8 +32,8 @@ JdbcTemplate template;
 
 	@Override
 	public List<Saleorderdetall> getid(long idsaleorderdetall ) {	  
-	String sql="SELECT 	sale_order_detail_id,sale_order_id,product_id,quantity,price,currency,status FROM examen.sale_order_detail  where sale_order_id = "+""+idsaleorderdetall+"";
-		//System.out.println(sql);
+	String sql="SELECT 	sale_order_detail_id,sale_order_id,product_id,quantity,price,currency,status FROM sale_order_detail  where sale_order_id = "+""+idsaleorderdetall+"";
+		System.out.println(sql);
 		return template.query(sql,new ResultSetExtractor<List<Saleorderdetall>>(){  		    
 		     public List<Saleorderdetall> extractData(ResultSet rs) throws SQLException,  
 		            DataAccessException { 

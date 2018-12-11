@@ -2,9 +2,10 @@ package app.salesorder.application.dto;
 
 import java.util.Date;
 
+import app.common.application.dto.RequestBaseDto;
 import app.salesorderdetall.domain.entity.Saleorderdetall;
 
-public class SalesorderCreateDto {
+public class SalesorderCreateDto extends RequestBaseDto {
 
 	private long id;
 	private Date sale_date;

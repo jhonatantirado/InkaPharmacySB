@@ -65,6 +65,13 @@ public class SalesorderCreateAssembler {
        	return ssalesorderListDto;
 	}
 	
+	public List<SalesorderListDto> toDtoList2(List<SalesorderListDto> salesorderListDto) {
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.addConverter(getConverter());
+		List<SalesorderListDto> ssalesorderListDto = modelMapper.map(salesorderListDto, new TypeToken<List<SalesorderListDto>>() {}.getType());
+       	return ssalesorderListDto;
+	}
+	
 	public SalesorderCreateDto toDto(Salesorder salesorder) {
 		ModelMapper modelMapper = new ModelMapper();
 		PropertyMap<Salesorder, SalesorderCreateDto> map = new PropertyMap<Salesorder, SalesorderCreateDto>() {
