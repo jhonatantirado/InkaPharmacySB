@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Service;
 import app.salesorder.domain.entity.Salesorder;
+import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 
 @Service
@@ -39,19 +40,20 @@ JdbcTemplate template;
 	@Override
 	public List<Salesorder> getallSaveorder(int page, int size,String DateFrom, String DateTo ) {	  
 		String sql="SELECT sale_order_id, sale_date,customer_id, employee_id,status FROM sale_order where (sale_date BETWEEN "+"'"+DateFrom+"'"+ " AND "+"'"+DateTo+"'" + ") LIMIT "+ ""+page+", "+""+size+""  ;
-		System.out.println(sql);
+		//System.out.println(sql);
 		return template.query(sql,new ResultSetExtractor<List<Salesorder>>(){  
 		    
 		     public List<Salesorder> extractData(ResultSet rs) throws SQLException,  
 		            DataAccessException { 
-		        List<Salesorder> list=new ArrayList<Salesorder>(); 		        
+		        List<Salesorder> list=new ArrayList<Salesorder>(); 
+		        List<Saleorderdetall> list2=new ArrayList<Saleorderdetall>(); 		
 		        while(rs.next()){  
-		        	Salesorder salesorder=new Salesorder();
+		        	Salesorder salesorder=new Salesorder();		        	
 		        	salesorder.setId(rs.getInt(1));		        	
 		        	salesorder.setSale_date(rs.getDate(2));		        					     
 				    salesorder.setCustomer_id(rs.getInt(3));		        	
 		        	salesorder.setEmployee_id(rs.getInt(4)); 
-		        	salesorder.setStatus(rs.getInt(5));
+		        	salesorder.setStatus(rs.getInt(5));	
 		        list.add(salesorder);  
 		        }  
 		        return list;  

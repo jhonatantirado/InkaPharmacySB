@@ -2,16 +2,18 @@ package app.salesorder.application.dto;
 
 import java.util.Date;
 
+import app.salesorderdetall.domain.entity.Saleorderdetall;
+
 public class SalesorderCreateDto {
 
 	private long id;
 	private Date sale_date;
 	private long customer_id;
-	private long employee_id;	
-	private int status;	
+	private long employee_id;
+	private int status;		
+	private Saleorderdetall Salesorderdetall;
 		
-public SalesorderCreateDto() {
-		
+	public SalesorderCreateDto() {		
 	}
 
 	public long getId() {
@@ -54,6 +56,12 @@ public SalesorderCreateDto() {
 		this.status = status;
 	}
 
-	
-	
+	public Saleorderdetall getSalesorderdetall() {
+		return Salesorderdetall;
+	}
+
+	public void setSalesorderdetall(Saleorderdetall salesorderdetall) {
+		Salesorderdetall = salesorderdetall;
+	}
+		
 }

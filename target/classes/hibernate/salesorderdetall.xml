@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" package="app.salesorderdetall.domain.entity">
+  <class name="Saleorderdetall" table="sale_order_detail">
+    <id column="sale_order_detail_id" name="id">
+      <generator class="native"/>
+    </id>
+    <property column="sale_order_id" name="sale_order_id" not-null="true"/>
+    <property column="product_id" name="product_id" not-null="true"/> 
+    <property column="quantity" name="quantity" not-null="true"/> 
+    <property column="price" name="price" not-null="true"/> 
+    <property column="currency" name="currency" not-null="true"/> 
+    <property column="status" name="status"/>     
+    </class>
+</hibernate-mapping>
+
+
+

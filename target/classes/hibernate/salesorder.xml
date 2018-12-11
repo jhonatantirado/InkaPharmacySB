@@ -8,7 +8,8 @@
     <property column="sale_date" name="sale_date" not-null="true"/>
     <property column="customer_id" name="customer_id" not-null="true"/> 
     <property column="employee_id" name="employee_id" not-null="true"/> 
-    <property column="status" name="status"/>     
+    <property column="status" name="status"/> 
+    <many-to-one name="saleorderdetall" class="app.salesorder.domain.entity.Saleorderdetall" column="sale_order_detail_id" not-null="true"/>
     </class>
 </hibernate-mapping>
 

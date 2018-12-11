@@ -16,6 +16,7 @@ import app.project.domain.entity.Project;
 import app.salesorder.application.dto.SalesorderCreateDto;
 import app.salesorder.application.dto.SalesorderListDto;
 import app.salesorder.domain.entity.Salesorder;
+import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 @Component
 public class SalesorderCreateAssembler {
@@ -45,11 +46,10 @@ public class SalesorderCreateAssembler {
 		    public Salesorder convert(MappingContext<SalesorderCreateDto, Salesorder> context) {
 		    	SalesorderCreateDto salesorderCreateDto =  SalesorderCreateDto.class.cast(context.getSource());		 
 		    	Salesorder salesorder = new Salesorder();
-		    	salesorder.setSale_date(salesorderCreateDto.getSale_date());
-		    	System.out.println("fecha -->> " + salesorderCreateDto.getSale_date());  
-		        salesorder.setCustomer_id(salesorderCreateDto.getCustomer_id());
+		    	salesorder.setSale_date(salesorderCreateDto.getSale_date());		    	 
+		        salesorder.setCustomer_id(salesorderCreateDto.getCustomer_id());		       
 		    	salesorder.setEmployee_id(salesorderCreateDto.getEmployee_id());
-		    	salesorder.setStatus(salesorderCreateDto.getStatus());
+		    	salesorder.setStatus(salesorderCreateDto.getStatus());		    	
 		    	return salesorder;
 		    }
 		};
@@ -62,8 +62,7 @@ public class SalesorderCreateAssembler {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.addConverter(getConverter());
 		List<SalesorderListDto> ssalesorderListDto = modelMapper.map(salesorderListDto, new TypeToken<List<SalesorderListDto>>() {}.getType());
-        System.out.println(" result" + ssalesorderListDto);
-		return ssalesorderListDto;
+       	return ssalesorderListDto;
 	}
 	
 	public SalesorderCreateDto toDto(Salesorder salesorder) {
@@ -74,6 +73,7 @@ public class SalesorderCreateAssembler {
             map().setCustomer_id(source.getCustomer_id());
             map().setEmployee_id(source.getEmployee_id());
             map().setStatus(source.getStatus());
+            map().setSalesorderdetall(source.getSalesorderdetall());
 		  }
 		};
 		modelMapper.addMappings(map);
