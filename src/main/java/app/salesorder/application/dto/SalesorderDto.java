@@ -1,13 +1,10 @@
 package app.salesorder.application.dto;
 
 import java.util.Date;
-
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import app.customers.application.deserializer.CustomerCreateDeserializer;
 import app.salesorderdetall.domain.entity.Saleorderdetall;
 
-@JsonDeserialize(using = CustomerCreateDeserializer.class)
+
 public class SalesorderDto {
 
 	private long id;
