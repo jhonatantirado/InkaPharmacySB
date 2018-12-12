@@ -9,5 +9,5 @@ import app.purchaseorder.domain.entity.Purchaseorder;
 public interface IPurchaseorderDAO {	
 	public void saveSavepurchase(Purchaseorder purchaseorder);
     public void saveSavepurchase(Pucharseorderdetall pucharseorderdetall,long productid);	
-	public List<Purchaseorder> getallSavepurchase(int offset, int limit,String DateFrom, String DateTo);
+	public List<Purchaseorder> getallSavepurchase(int page, int size,String DateFrom, String DateTo);
 }

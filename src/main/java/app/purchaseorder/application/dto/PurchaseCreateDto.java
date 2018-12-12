@@ -2,9 +2,10 @@ package app.purchaseorder.application.dto;
 
 import java.util.Date;
 
+import app.common.application.dto.RequestBaseDto;
 import app.pucharseorderdetall.domain.entity.Pucharseorderdetall;
 
-public class PurchaseCreateDto {
+public class PurchaseCreateDto extends RequestBaseDto {
 		
 		private long id;
 		private Date purchase_date; 

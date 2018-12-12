@@ -1,8 +1,6 @@
 package app.salesorder.application.dto;
 
-import java.math.BigDecimal;
 import java.util.Date;
-
 import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 public class SalesorderListDto {

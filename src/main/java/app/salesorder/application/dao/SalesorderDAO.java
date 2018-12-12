@@ -31,6 +31,7 @@ public class SalesorderDAO implements ISalesorderDAO {
 	public void saveSaveorder(Salesorder p) {
 	      String sql="INSERT INTO sale_order (sale_date,customer_id,employee_id,status)"
      + "values('"+p.getSale_date()+"',"+p.getCustomer_id()+","+p.getEmployee_id()+","+p.getStatus()+")";
+	      System.out.println("FECHA -->> " + p.getSale_date()  );
 	System.out.println(sql);
 	template.update(sql);		
 		

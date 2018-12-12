@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 import app.pucharseorderdetall.application.dto.PurchaseorderdetallCreateDto;
 import app.pucharseorderdetall.application.dto.PurchaseorderdetallListDto;
 import app.pucharseorderdetall.domain.entity.Pucharseorderdetall;
+import app.salesorder.application.dto.SalesorderListDto;
+import app.salesorder.domain.entity.Salesorder;
+import app.salesorderdetall.application.dto.SalesorderdetallListDto;
+import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 @Component
 public class PurchaseorderdetallCreateAssembler {
@@ -22,6 +26,7 @@ public class PurchaseorderdetallCreateAssembler {
         System.out.println(" result" + ppurchaseorderdetallListDto);
 		return ppurchaseorderdetallListDto;
 	}
+	
 	
 	private Converter<PurchaseorderdetallCreateDto, Pucharseorderdetall> getConverter() {
 		Converter<PurchaseorderdetallCreateDto, Pucharseorderdetall> converter = new Converter<PurchaseorderdetallCreateDto, Pucharseorderdetall>() {

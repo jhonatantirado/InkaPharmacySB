@@ -1,7 +1,6 @@
 package app.salesorder.application.assembler;
 
 import java.util.List;
-
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -10,9 +9,6 @@ import org.modelmapper.spi.MappingContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import app.common.infrastructure.persistence.hibernate.UnitOfWorkHibernate;
-import app.project.application.dto.ProjectCreateDto;
-import app.project.application.dto.ProjectListDto;
-import app.project.domain.entity.Project;
 import app.salesorder.application.dto.SalesorderCreateDto;
 import app.salesorder.application.dto.SalesorderListDto;
 import app.salesorder.domain.entity.Salesorder;
