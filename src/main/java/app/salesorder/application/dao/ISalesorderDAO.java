@@ -7,8 +7,8 @@ import app.salesorderdetall.domain.entity.Saleorderdetall;
 
 public interface ISalesorderDAO {
 	
-    public void saveSaveorder(Salesorder salesorder);
-    public void saveSaveorderd(Saleorderdetall saleorderdetall,long productid);	
+    public int saveSaveorder(Salesorder salesorder);
+    public void saveSaveorderd(Saleorderdetall saleorderdetall,long productid,int result);	
 	public List<Salesorder> getallSaveorder(int offset, int limit,String DateFrom, String DateTo);
-
+	
 }

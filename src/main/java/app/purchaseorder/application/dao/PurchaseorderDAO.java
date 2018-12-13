@@ -49,6 +49,7 @@ public class PurchaseorderDAO implements IPurchaseorderDAO{
 	public List<Purchaseorder> getallSavepurchase(int page, int size, String DateFrom, String DateTo) {
 		String sql = "SELECT purchase_order_id,purchase_date,provider_id,employee_id	FROM purchase_order  where (purchase_date BETWEEN "
 				+ "'" + DateFrom + "'" + " AND " + "'" + DateTo + "'" + ") LIMIT " + "" + page + ", " + "" + size + "";
+		System.out.println(sql);
 		return template.query(sql, new ResultSetExtractor<List<Purchaseorder>>() {
 			public List<Purchaseorder> extractData(ResultSet rs) throws SQLException, DataAccessException {
 				List<Purchaseorder> list = new ArrayList<Purchaseorder>();				

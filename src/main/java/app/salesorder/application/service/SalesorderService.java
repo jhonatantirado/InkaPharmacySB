@@ -57,8 +57,9 @@ public class SalesorderService {
 		saleorderdetall.setCurrency(salesorderCreateDto.getSalesorderdetall().getCurrency());
 		saleorderdetall.setStatus(salesorderCreateDto.getSalesorderdetall().getStatus());
 		salesorder.setSalesorderdetall(saleorderdetall);
-		salesorderDAO.saveSaveorder(salesorder);
-		salesorderDAO.saveSaveorderd(saleorderdetall, saleorderdetall.getSale_order_id());
+		//int resul = salesorderDAO.saveSaveorder(salesorder);
+		int resul = salesorderDAO.saveSaveorder(salesorder);		
+		salesorderDAO.saveSaveorderd(saleorderdetall, saleorderdetall.getSale_order_id(),resul);		
 		return ResponseEntity.ok().body("ok");
 	}
 
@@ -70,12 +71,10 @@ public class SalesorderService {
 		for (Salesorder p : listado) {
 			Salesorder salesorderListDto1 = new Salesorder();
 			salesorderListDto1.setId(p.getId());
-			salesorderListDto1.setSale_date(p.getSale_date());
-			System.out.println("	FECHAA  " + salesorderListDto1.getSale_date());
+			salesorderListDto1.setSale_date(p.getSale_date());			
 			salesorderListDto1.setCustomer_id(p.getCustomer_id());
 			salesorderListDto1.setEmployee_id(p.getEmployee_id());
 			salesorderListDto1.setStatus(p.getStatus());
-
 			List<SalesorderdetallListDto> listado2 = salesorderdetallService.getIdSales(salesorderListDto1.getId());
 			for (SalesorderdetallListDto q : listado2) {
 				Saleorderdetall salesorderdetall = new Saleorderdetall();
