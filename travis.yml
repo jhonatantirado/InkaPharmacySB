@@ -1,0 +1,14 @@
+---
+language: java
+sudo: false
+script: mvn clean verify
+
+deploy:
+   provider: cloudfoundry
+   username: 
+    secure: jgsistem@gmail.com
+   password:
+      secure: "j8TgrJD9DWy2yNmH43QNOtAgzCFwMwd5X8uuQb+gmt8vOuWERyhKXIyCU282jDvdy1b78kCUovYjSFTD7aXXyCKZtxToxg8oZAPxqSD43Df+WSK4ILTsLcakkYiP0iABOvowiQnWSn6LzX8Gk/cv005MUti2SaFnGevz0Hm+Ku0WfikbjheKGKZZ1qUqBJBGX34gbTNmURjLgZiMyS0ZuEpVjUfpwSO3TSxiP0vCUgvvqGfTGtBq9gTf99uMnr6RjsFVNkWQM6+0JM625tNWrruTopBH1QV/3iM7uXw0Rnru/8DpYHcOzXXZ3Dww0iRoQpjHj2qLq3KwYEVjmkb9NhPIUYlze5ejoZUjKfLH8lb+Es6lisg+LWJYg+Tb4FYOcpKEoZYMGZ7IfxMupaUqIOY2PEDmiRNjdau65IidpfDidjTmkyHV1cwx7hzw9NWJkDFereg8bKiw3LBMkzEY5+Hpk7jd5SDsjMYc9tOW5sHEV6SGAL0mQGlSJrhJlpmX9hQEbNCkXVXwBwPoYkgQnw3kMc4Zco6qPTx6dAgaqmVVWFmcbzlzTs9KENqMjMxp5asmvtd6exdULICSIXroTdWUsOFp66Mi8Z5r3EF6gFHJ59ewUs4FJVGHs3EHces5oxp+pSfTu37LOZXFwvQDlJTSwXVyHHwPC3e3BWBvjc4="
+   api: https://api.run.pivotal.io
+   organization: jg
+   space: development

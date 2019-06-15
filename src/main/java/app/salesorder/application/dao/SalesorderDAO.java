@@ -40,7 +40,7 @@ public class SalesorderDAO implements ISalesorderDAO {
 	System.out.println(sql);
 	template.update(sql);	
 	int  ok = template.queryForObject("SELECT MAX(sale_order_id) FROM sale_order", int.class);	
-	System.out.println( "que se inserto " + ok);
+	System.out.println( "que se insertara " + ok);	
 		return ok;	
 	}
 	
